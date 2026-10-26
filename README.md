@@ -78,13 +78,17 @@ py backtest.py grid --vary sma_days=20,28,36 --vary target_pct=2,3.14,5
 Useful options: `--end DATE`, `--set key=value` (any `config.json` key plus `cost_bps` and `cash_yield_pct`),
 `--tax` (apply tax and withdrawal; default is gross), `--refresh` (re-download prices). Outputs go to `reports/`.
 
-### Daily schedule (Windows)
+### Daily schedule (Windows, currently disabled)
 
-A scheduled task named **ETF28 Daily Scan** runs `run_scan_task.py` on weekdays at 16:00 and 18:00 IST and writes
-`reports\scan_latest.txt` (latest) and `reports\scan_log.txt` (history).
+> **Status: disabled.** The scheduled scan now runs on GitHub Actions (next section), so this local task is switched off
+> to avoid duplicate scans. Re-enable it with `Enable-ScheduledTask -TaskName "ETF28 Daily Scan"`.
+
+A scheduled task named **ETF28 Daily Scan** runs `run_scan_task.py` on weekdays at 16:00 and 18:00 IST when enabled and
+writes `reports\scan_latest.txt` (latest) and `reports\scan_log.txt` (history). Unlike the GitHub run, it uses your local ledger.
 
 ```powershell
 Get-ScheduledTask -TaskName "ETF28 Daily Scan"            # status
+Enable-ScheduledTask -TaskName "ETF28 Daily Scan"         # turn back on
 Start-ScheduledTask -TaskName "ETF28 Daily Scan"          # run now
 Disable-ScheduledTask -TaskName "ETF28 Daily Scan"        # pause
 ```
