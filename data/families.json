@@ -1,0 +1,16 @@
+{
+ "large_cap": ["NIFTYBEES", "TOP100CASE", "SENSEXIETF", "HDFCBSE500", "MONIFTY500", "TOP10ADD", "LOWVOL1"],
+ "financials": ["BANKBEES", "BFSI"],
+ "mid_small_cap": ["MIDCAPETF", "MOM100", "MIDSELIETF", "MIDSMALL", "JUNIORBEES", "ALPHAETF", "MAKEINDIA", "CONSUMER", "HDFCSML250", "SML100CASE", "SELECTIPO"],
+ "tech": ["ITBEES", "TNIDETF", "GROWWNET"],
+ "healthcare": ["PHARMABEES", "HEALTHIETF", "MOHEALTH"],
+ "psu_cyclicals": ["ICICIB22", "CPSEETF", "INFRAIETF", "OILIETF", "MOVALUE", "PSUBNKBEES", "GROWWRAIL", "METALIETF", "COMMOIETF"],
+ "auto": ["AUTOBEES"],
+ "fmcg": ["FMCGIETF"],
+ "realty": ["MOREALTY"],
+ "defence": ["MODEFENCE"],
+ "gold": ["GOLDBEES"],
+ "silver": ["SILVERBEES"],
+ "china": ["HNGSNGBEES", "MAHKTECH"],
+ "us_equity": ["MON100", "MAFANG", "MONQ50", "MASPTOP50"]
+}

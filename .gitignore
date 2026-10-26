@@ -1,0 +1,16 @@
+# personal trading ledger: never commit
+holdings.csv
+sold.csv
+
+# generated
+reports/
+data/prices.pkl
+data/corr.pkl
+data/etfs_backup_*.csv
+__pycache__/
+*.pyc
+
+# environment / IDE
+.venv/
+.idea/
+.streamlit/secrets.toml

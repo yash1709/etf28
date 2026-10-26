@@ -1,0 +1,253 @@
+symbol,underlying
+NIFTYBEES,Nifty 50
+SETFNIF50,Nifty 50
+NIFTYIETF,Nifty 50
+NIFTY1,Nifty 50
+NIFTYETF,Nifty 50
+BSLNIFTY,Nifty 50
+HDFCNIFTY,Nifty 50
+NIFTYAXIS,Nifty 50
+NIFTYBETA,Nifty 50
+NIFTYCASE,Nifty 50
+GROWWNIFTY,Nifty 50
+NIFTYADD,Nifty 50
+MOM50,Nifty 50
+AONENIFTY,Nifty 50
+QNIFTY,Nifty 50
+NIFTYBETF,Nifty 50
+NIFTYJBLK,Nifty 50
+IDFNIFTYET,Nifty 50
+NETF,Nifty 50
+IVZINNIFTY,Nifty 50
+ENIFTY,Nifty 50
+LICNETFN50,Nifty 50
+JUNIORBEES,Nifty Next 50
+NEXT50IETF,Nifty Next 50
+NEXT50,Nifty Next 50
+SETFNN50,Nifty Next 50
+HDFCNEXT50,Nifty Next 50
+NEXT50BETA,Nifty Next 50
+NEXT50ETF,Nifty Next 50
+MONEXT50,Nifty Next 50
+ABSLNN50ET,Nifty Next 50
+GROWWNXT50,Nifty Next 50
+NEXT50ADD,Nifty Next 50
+ENEXT50,Nifty Next 50
+NIF100BEES,Nifty 100
+TOP100CASE,Nifty 100
+NIF100IETF,Nifty 100
+HDFCNIF100,Nifty 100
+MONIFTY100,Nifty 100
+LICNFNHGP,Nifty 100
+ELM250,Nifty LargeMidcap 250
+MONIFTY500,Nifty 500
+NIF500BETA,Nifty 500
+MIDCAP,Nifty Midcap 50
+MID150BEES,Nifty Midcap 150
+MIDCAPETF,Nifty Midcap 150
+MIDCAPIETF,Nifty Midcap 150
+MID150CASE,Nifty Midcap 150
+HDFCMID150,Nifty Midcap 150
+MID150,Nifty Midcap 150
+SBINMID150,Nifty Midcap 150
+GROWWMC150,Nifty Midcap 150
+MIDCAPADD,Nifty Midcap 150
+MIDCAPBETA,Nifty Midcap 150
+HDFCSML250,Nifty Smallcap 250
+MOSMALL250,Nifty Smallcap 250
+SMALL250,Nifty Smallcap 250
+SMALLADD,Nifty Smallcap 250
+SMALLIETF,Nifty Smallcap 250
+GROWWSC250,Nifty Smallcap 250
+SBISMLETF,Nifty Smallcap 250
+VALUEAXIS,Nifty500 Value 50
+VALUE,Nifty500 Value 50
+AUTOBEES,Nifty Auto
+AUTOIETF,Nifty Auto
+BANKBEES,Nifty Bank
+BANKETF,Nifty Bank
+SETFNIFBK,Nifty Bank
+BANKNIFTY1,Nifty Bank
+BANKIETF,Nifty Bank
+BANKBETA,Nifty Bank
+HDFCNIFBAN,Nifty Bank
+BNKETFAXIS,Nifty Bank
+BANKADD,Nifty Bank
+BANKBETF,Nifty Bank
+ABSLBANETF,Nifty Bank
+EBANKNIFTY,Nifty Bank
+BBNPNBETF,Nifty Bank
+IVZBANKNF,Nifty Bank
+PSUBNKBEES,Nifty PSU Bank
+PSUBANK,Nifty PSU Bank
+PSUBNKIETF,Nifty PSU Bank
+PSUBANKADD,Nifty PSU Bank
+HDFCPSUBK,Nifty PSU Bank
+BANKPSU,Nifty PSU Bank
+GROWWPSUBK,Nifty PSU Bank
+BFSI,Nifty Financial Services
+FMCGIETF,Nifty FMCG
+FMCGADD,Nifty FMCG
+ITBEES,Nifty IT
+ITETF,Nifty IT
+ITIETF,Nifty IT
+IT,Nifty IT
+HDFCNIFIT,Nifty IT
+SBIETFIT,Nifty IT
+ITAXIS,Nifty IT
+ITADD,Nifty IT
+TECH,Nifty IT
+ITBETA,Nifty IT
+PHARMABEES,Nifty Pharma
+METALIETF,Nifty Metal
+METAL,Nifty Metal
+GROWWMETAL,Nifty Metal
+HDFCNIMEG,Nifty Metal
+MOMETAL,Nifty Metal
+EMETAL,Nifty Metal
+MOREALTY,Nifty Realty
+GROWWRLTY,Nifty Realty
+ENERGY,Nifty Energy
+MOENERGY,Nifty Energy
+ENERGYAXIS,Nifty Energy
+OILIETF,Nifty Oil & Gas
+MOOILGAS,Nifty Oil & Gas
+GROWWCAPM,Nifty Capital Market
+INSUREIETF,BSE Insurance
+ECAPINSURE,BSE Capital Markets & Insurance
+HEALTHIETF,Nifty Healthcare
+HEALTHY,Nifty Healthcare
+MOHEALTH,BSE Healthcare
+HEALTHAXIS,Nifty Healthcare
+HEALTHCARE,Nifty 500 Healthcare
+HEALTHADD,Nifty Healthcare
+INFRAIETF,Nifty Infrastructure
+INFRABEES,Nifty Infrastructure
+MOINFRA,BSE India Infrastructure
+INFRA,Nifty India Infrastructure & Logistics
+COMMOIETF,Nifty Commodities
+MODEFENCE,Nifty India Defence
+GROWWDEFNC,Nifty India Defence
+DEFENCE,BSE India Defence
+TNIDETF,Nifty India Digital
+GROWWNET,Nifty India Internet
+INTERNET,Nifty India Internet
+EQUAL200,BSE 200 Equal Weight
+BSE500IETF,BSE 500
+HDFCBSE500,BSE 500
+DIVIDEND,BSE 500 Dividend Leaders 50
+ICICIB22,BSE BHARAT 22
+MOVALUE,BSE Enhanced Value
+GROWWHOSPI,BSE Hospitals
+SECLEDBETA,BSE India Sector Leaders
+LARGEMID50,BSE LargeMid Stable Dividend 50
+ELMDIV,BSE LargeMid Stable Dividend 50
+MOLOWVOL,BSE Low Volatility
+MOMMIDCAP,BSE Midcap 150 Momentum 30
+MIDSELIETF,BSE Midcap Select
+MIDBANKADD,BSE MidSmall Private Banks
+GROWWPOWER,BSE Power
+MOQUALITY,BSE Quality
+SELECTIPO,BSE Select IPO
+MOIPO,BSE Select IPO
+SENSEXIETF,BSE Sensex
+HDFCSENSEX,BSE Sensex
+SENSEXETF,BSE Sensex
+SENSEXBETA,BSE Sensex
+SENSEXAXIS,BSE Sensex
+SENSEXADD,BSE Sensex
+BSLSENETFG,BSE Sensex
+ESENSEX,BSE Sensex
+IVZSENSEX,BSE Sensex
+LICNETFSEN,BSE Sensex
+NEXT30ADD,BSE Sensex Next 30
+SNXT30BEES,BSE Sensex Next 30
+SNXT50BETA,BSE Sensex Next 50
+MSCIINDIA,MSCI India
+MSCIADD,MSCI India
+ABSLMSCIN,MSCI India
+MSCI360,MSCI India
+NIFTY100EW,Nifty 100 Equal Weight
+ESG,Nifty 100 ESG Sector Leaders
+LOWVOL1,Nifty 100 Low Volatility 30
+LOWVOLIETF,Nifty 100 Low Volatility 30
+HDFCLOWVOL,Nifty 100 Low Volatility 30
+LOWVOL,Nifty 100 Low Volatility 30
+HDFCQUAL,Nifty 100 Quality 30
+GROWWN200,Nifty 200
+ALPHAETF,Nifty 200 Alpha 30
+SBIETFCON,Nifty India Consumption
+CONSUMBEES,Nifty India Consumption
+MAKEINDIA,Nifty India Manufacturing
+MANUFGBEES,Nifty India Manufacturing
+MOMGF,Nifty India Manufacturing
+CONSUMER,Nifty India New Age Consumption
+GROWWRAIL,Nifty India Railways PSU
+MOTOUR,Nifty India Tourism
+MOM100,Nifty Midcap 100
+LICNMID100,Nifty Midcap 100
+MIDSMALL,Nifty MidSmallcap400 Momentum Quality 100
+MNC,Nifty MNC
+MOMNC,Nifty MNC
+ABSLPSE,Nifty PSE
+GROWWPSE,Nifty PSE
+MOPSE,Nifty PSE
+CPSEETF,Nifty CPSE
+MOSERVICE,Nifty Services Sector
+SML100CASE,Nifty Smallcap100
+TOP10ADD,Nifty Top 10 Equal Weight
+TOP15IETF,Nifty Top 15 Equal Weight
+TOP20,Nifty Top 20 Equal Weight
+AONETOTAL,Nifty Total Market
+AONETMMQ50,Nifty Total Market Momentum Quality 50
+MON100,Nasdaq 100
+MAFANG,NYSE FANG+
+MONQ50,Nasdaq Q-50
+MASPTOP50,S&P 500 Top 50
+HNGSNGBEES,Hang Seng
+MAHKTECH,Hang Seng TECH
+GOLDBEES,Gold
+SETFGOLD,Gold
+GOLDIETF,Gold
+TATAGOLD,Gold
+HDFCGOLD,Gold
+GOLD1,Gold
+GOLDCASE,Gold
+GOLDETF,Gold
+GOLDAXIS,Gold
+GOLDBETA,Gold
+BSLGOLDETF,Gold
+GOLDADD,Gold
+QGOLDHALF,Gold
+LICMFGOLD,Gold
+GROWWGOLD,Gold
+CHOICEGOLD,Gold
+IVZINGOLD,Gold
+EGOLD,Gold
+HSBCGOLD,Gold
+MOGOLD,Gold
+AONEGOLD,Gold
+TWCGOLDETF,Gold
+GOLDBND,Gold
+BBNPPGOLD,Gold
+GOLD360,Gold
+UNIONGOLD,Gold
+SILVERBEES,Silver
+TATSILV,Silver
+HDFCSILVER,Silver
+SILVERIETF,Silver
+SILVER1,Silver
+SILVER,Silver
+SBISILVER,Silver
+ESILVER,Silver
+SILVERBETA,Silver
+SILVERCASE,Silver
+SILVERAXIS,Silver
+SILVERAG,Silver
+SILVERADD,Silver
+GROWWSLVR,Silver
+MOSILVER,Silver
+SILVER001,Silver
+AONESILVER,Silver
+SILVER360,Silver
+SILVERBND,Silver

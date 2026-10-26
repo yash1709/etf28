@@ -1,0 +1,17 @@
+{
+  "mode": "lifo",
+  "capital": 500000,
+  "reserve_pct": 30,
+  "max_etfs": 20,
+  "max_new_buys_per_day": 4,
+  "max_per_family": 2,
+  "max_stale_pct": 10,
+  "sma_days": 28,
+  "target_pct": 3.14,
+  "avg_drop_pct": 5,
+  "fast_move_pct": 18,
+  "fast_move_days": 21,
+  "tax_pct": 20,
+  "cess_pct": 4,
+  "withdraw_pct": 10
+}

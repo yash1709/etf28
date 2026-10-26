@@ -1,0 +1,48 @@
+symbol,underlying,family,median_value_lakh,history_days
+AUTOBEES,Nifty Auto,auto,520.6,1170
+HNGSNGBEES,Hang Seng,china,371.8,4097
+MAHKTECH,Hang Seng TECH,china,131.7,1201
+MODEFENCE,Nifty India Defence,defence,1190.6,536
+BANKBEES,Nifty Bank,financials,3179.5,4387
+BFSI,Nifty Financial Services,financials,47.4,774
+FMCGIETF,Nifty FMCG,fmcg,716.2,1284
+GOLDBEES,Gold,gold,26407.7,4386
+PHARMABEES,Nifty Pharma,healthcare,1103.4,1291
+HEALTHIETF,Nifty Healthcare,healthcare,164.0,704
+MOHEALTH,BSE Healthcare,healthcare,25.0,1038
+NIFTYBEES,Nifty 50,large_cap,15608.5,4387
+HDFCBSE500,BSE 500,large_cap,395.0,902
+TOP10ADD,Nifty Top 10 Equal Weight,large_cap,155.4,525
+MONIFTY500,Nifty 500,large_cap,115.2,755
+SENSEXIETF,BSE Sensex,large_cap,91.2,704
+LOWVOL1,Nifty 100 Low Volatility 30,large_cap,84.6,1131
+TOP100CASE,Nifty 100,large_cap,79.1,583
+JUNIORBEES,Nifty Next 50,mid_small_cap,2478.6,4389
+HDFCSML250,Nifty Smallcap 250,mid_small_cap,2317.8,902
+MIDCAPETF,Nifty Midcap 150,mid_small_cap,506.3,580
+MOM100,Nifty Midcap 100,mid_small_cap,189.9,3875
+SML100CASE,Nifty Smallcap100,mid_small_cap,141.5,271
+MIDSMALL,Nifty MidSmallcap400 Momentum Quality 100,mid_small_cap,129.4,529
+ALPHAETF,Nifty 200 Alpha 30,mid_small_cap,126.0,403
+MAKEINDIA,Nifty India Manufacturing,mid_small_cap,60.5,774
+MIDSELIETF,BSE Midcap Select,mid_small_cap,43.9,2084
+CONSUMER,Nifty India New Age Consumption,mid_small_cap,27.4,450
+SELECTIPO,BSE Select IPO,mid_small_cap,26.4,398
+PSUBNKBEES,Nifty PSU Bank,psu_cyclicals,1452.3,4387
+METALIETF,Nifty Metal,psu_cyclicals,820.4,541
+CPSEETF,Nifty CPSE,psu_cyclicals,653.1,3095
+ICICIB22,BSE BHARAT 22,psu_cyclicals,301.0,1695
+GROWWRAIL,Nifty India Railways PSU,psu_cyclicals,132.6,419
+OILIETF,Nifty Oil & Gas,psu_cyclicals,132.5,529
+INFRAIETF,Nifty Infrastructure,psu_cyclicals,93.2,577
+MOVALUE,BSE Enhanced Value,psu_cyclicals,59.4,1023
+COMMOIETF,Nifty Commodities,psu_cyclicals,47.1,704
+MOREALTY,Nifty Realty,realty,415.4,642
+SILVERBEES,Silver,silver,38650.4,1164
+ITBEES,Nifty IT,tech,3052.6,1565
+TNIDETF,Nifty India Digital,tech,71.5,1127
+GROWWNET,Nifty India Internet,tech,52.7,276
+MON100,Nasdaq 100,us_equity,2016.3,3836
+MAFANG,NYSE FANG+,us_equity,1384.8,1345
+MONQ50,Nasdaq Q-50,us_equity,900.8,1187
+MASPTOP50,S&P 500 Top 50,us_equity,525.7,1253
