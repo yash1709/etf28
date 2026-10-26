@@ -92,6 +92,19 @@ Disable-ScheduledTask -TaskName "ETF28 Daily Scan"        # pause
 It launches `pythonw.exe` through a script because console-based launches were killed on this machine.
 If you move or reinstall Python, update the interpreter path in the task. The PC must be on and you must be logged in.
 
+### Daily schedule (GitHub Actions)
+
+`.github/workflows/scan.yml` runs the scanner in the cloud on weekdays at **16:25 IST** and **23:30 IST**
+(cron `55 10 * * 1-5` and `0 18 * * 1-5` in UTC). The second run retries if Yahoo was still stale at the first.
+
+- Open the repo's **Actions** tab, choose a run, and read the scan in its **Summary**. The raw output is also attached
+  as an artifact for 14 days.
+- A stale-data block does **not** fail the run (that would email you every evening); only a scanner crash does.
+- Run it on demand from **Actions → Daily ETF scan → Run workflow** (tick *force* to show actions despite stale data).
+- It scans **without your ledger**, so BUY rows assume you hold nothing. The repo is public, so do not put your
+  holdings in it; use the local scan or the app for ledger-aware signals.
+- GitHub can start scheduled runs several minutes late, and it pauses schedules in repos with no activity for 60 days.
+
 ## Configuration
 
 `config.json` drives the scanner and backtester (the app has matching sidebar controls).
