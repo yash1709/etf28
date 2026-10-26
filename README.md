@@ -4,6 +4,8 @@ A scanner, backtester and web app for a 28-day SMA momentum strategy on NSE-list
 from a three-part YouTube series ("28 SMA Momentum", FIFO and LIFO versions) and adds tooling around them:
 a daily scanner, a ledger, a backtester, a sensitivity grid, a data-driven ETF universe and a Streamlit app.
 
+**Live app:** <https://h6czqqzbk69xfdcz4da3k3.streamlit.app/> (sign-in required; access is set in the app's Share settings)
+
 > **Disclaimer.** Educational tool, not investment advice. In our own backtests the strategy **lagged** an equal-weight
 > buy-and-hold basket, and its never-sell-at-a-loss rule can tie capital up for years (see [Results](#results-so-far)).
 > Price data comes from Yahoo Finance and can be late or wrong. Verify prices with your broker before trading.
