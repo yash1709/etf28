@@ -76,6 +76,45 @@ def signals(c, cfg):
     }
 
 
+HISTORY_START = "2026-09-17"
+
+
+def signal_history(cfg, uni, closes, since=HISTORY_START):
+    """Every breakout/breakdown per trading day from `since`, newest first (no file IO).
+
+    Uses the same rule as signals(), evaluated on each day's close, so a past day shows what the
+    scan would have flagged then. Columns: date, days_ago (trading days before the latest bar),
+    signal, symbol, family, underlying, close, vs_sma_%, off_52w_high_%.
+    """
+    under = dict(zip(uni["symbol"], uni["underlying"]))
+    fam = dict(zip(uni["symbol"], uni["family"] if "family" in uni else uni["underlying"]))
+    since = pd.Timestamp(since)
+    rows = []
+    for s, c in closes.items():
+        sma = c.rolling(cfg["sma_days"]).mean()
+        ok = sma.notna()
+        above = (c > sma) & ok
+        below = (c < sma) & ok
+        up = below.shift(2, fill_value=False) & above.shift(1, fill_value=False) & above
+        dn = above.shift(2, fill_value=False) & below.shift(1, fill_value=False) & below
+        high = c.rolling(252, min_periods=1).max()
+        for flag, name in ((up, "BREAKOUT"), (dn, "BREAKDOWN")):
+            for d in c.index[flag & (c.index >= since)]:
+                rows.append({"date": d.date(), "signal": name, "symbol": s, "family": fam.get(s),
+                             "underlying": under.get(s), "close": float(c[d]),
+                             "vs_sma_%": (c[d] / sma[d] - 1) * 100,
+                             "off_52w_high_%": (c[d] / high[d] - 1) * 100})
+    cols = ["date", "days_ago", "signal", "symbol", "family", "underlying", "close",
+            "vs_sma_%", "off_52w_high_%"]
+    if not rows:
+        return pd.DataFrame(columns=cols)
+    df = pd.DataFrame(rows)
+    days = sorted({d.date() for c in closes.values() for d in c.index}, reverse=True)
+    df["days_ago"] = df["date"].map({d: i for i, d in enumerate(days)})
+    return df.sort_values(["date", "signal", "off_52w_high_%"],
+                          ascending=[False, True, True])[cols].reset_index(drop=True)
+
+
 def capital_state(cfg, holdings, sold):
     """Total capital = starting capital + reinvested growth (after tax and withdrawal)."""
     growth = 0.0
@@ -259,6 +298,19 @@ def scan(cfg, force=False):
     print("\nPlace orders after 3:15 PM, then record them with the buy/sell commands.")
 
 
+def history(cfg, since):
+    uni = pd.read_csv(UNIVERSE)
+    closes, _ = fetch(uni["symbol"].tolist())
+    h = signal_history(cfg, uni, closes, since)
+    REPORTS.mkdir(exist_ok=True)
+    h.to_csv(REPORTS / "signal_history.csv", index=False)
+    for d, g in h.groupby("date", sort=False):
+        print(f"\n{d}  (trading day -{g['days_ago'].iloc[0]})")
+        for sig, gg in g.groupby("signal"):
+            print(f"  {sig}: {', '.join(gg['symbol'])}")
+    print(f"\nsaved reports/signal_history.csv ({len(h)} signals since {since})")
+
+
 def status(cfg):
     holdings, sold = load_csv(HOLDINGS, HOLD_COLS), load_csv(SOLD, SOLD_COLS)
     total, invested, cash, per_buy = capital_state(cfg, holdings, sold)
@@ -300,7 +352,9 @@ def main():
     sc = sub.add_parser("scan")
     sc.add_argument("--force", action="store_true", help="show actions even if the data check fails")
     sub.add_parser("status")
-    b = sub.add_parser("buy")
+    hs = sub.add_parser("history")
+    hs.add_argument("--since", default=HISTORY_START)
+    b =sub.add_parser("buy")
     b.add_argument("symbol")
     b.add_argument("price", type=float)
     b.add_argument("qty", type=int)
@@ -314,6 +368,7 @@ def main():
     a = p.parse_args()
     cfg = load_cfg()
     {"scan": lambda: scan(cfg, a.force), "status": lambda: status(cfg),
+     "history": lambda: history(cfg, a.since),
      "buy": lambda: record_buy(a), "sell": lambda: record_sell(a, cfg)}[a.cmd]()
 
 

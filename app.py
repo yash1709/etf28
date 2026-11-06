@@ -100,8 +100,8 @@ def persist():
         st.session_state.sold.to_csv(sc.SOLD, index=False)
 
 
-tab_scan, tab_ledger, tab_bt, tab_uni, tab_help = st.tabs(
-    ["Today's scan", "Ledger", "Backtest", "Universe", "How it works"])
+tab_scan, tab_hist, tab_ledger, tab_bt, tab_uni, tab_help = st.tabs(
+    ["Today's scan", "Signal history", "Ledger", "Backtest", "Universe", "How it works"])
 
 # ------------------------------------------------------------------ scan
 
@@ -176,6 +176,33 @@ with tab_scan:
         st.dataframe(t, hide_index=True, width="stretch", column_config={
             c: st.column_config.NumberColumn(format="%.2f") for c in
             ("close", "sma", "vs_sma_%", "off_52w_high_%", "1m_%")})
+
+# ------------------------------------------------------------------ signal history
+
+with tab_hist:
+    st.subheader("Signal history")
+    st.caption("Which ETFs gave a breakout or breakdown on each trading day, newest first. Recomputed from "
+               "prices with the current signal parameters, so it shows what the scan would have flagged.")
+    since = st.date_input("Since", date.fromisoformat(sc.HISTORY_START), key="hist_since")
+    H = sc.signal_history(cfg, uni, closes, since)
+    if H.empty:
+        st.info("No signals in this period.")
+    else:
+        only_b = st.checkbox("Breakouts only", value=False)
+        if only_b:
+            H = H[H["signal"] == "BREAKOUT"]
+        label = {0: "Today (latest bar)", 1: "Yesterday"}
+        for d, g in H.groupby("date", sort=False):
+            n = int(g["days_ago"].iloc[0])
+            head = label.get(n, f"{n} trading days ago")
+            bo, bd = g[g["signal"] == "BREAKOUT"], g[g["signal"] == "BREAKDOWN"]
+            st.markdown(f"**{head} · {d}** — breakouts: {', '.join(bo['symbol']) or '–'}"
+                        + (f" · breakdowns: {', '.join(bd['symbol'])}" if len(bd) else ""))
+        with st.expander("Full table"):
+            st.dataframe(H, hide_index=True, width="stretch", column_config={
+                c: st.column_config.NumberColumn(format="%.2f") for c in
+                ("close", "vs_sma_%", "off_52w_high_%")})
+            st.download_button("Download signal_history.csv", H.to_csv(index=False), "signal_history.csv")
 
 # ------------------------------------------------------------------ ledger
 
