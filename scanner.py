@@ -10,6 +10,7 @@ The signal logic lives in compute_scan / apply_buy / apply_sell (pure functions 
 shared by this CLI and the Streamlit app (app.py).
 """
 import argparse
+import io
 import json
 import math
 import sys
@@ -17,6 +18,7 @@ from datetime import date, timedelta
 from pathlib import Path
 
 import pandas as pd
+import requests
 import yfinance as yf
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -43,7 +45,61 @@ def load_csv(path, cols):
     return pd.DataFrame(columns=cols)
 
 
+NSE_BHAV = "https://nsearchives.nseindia.com/products/content/sec_bhavdata_full_{:%d%m%Y}.csv"
+
+
+def nse_closes(day, symbols):
+    """Official NSE closing prices for one day from the daily bhavcopy; {} if not published."""
+    try:
+        r = requests.get(NSE_BHAV.format(day), headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
+        if r.status_code != 200:
+            return {}
+        df = pd.read_csv(io.StringIO(r.text), skipinitialspace=True)
+    except Exception:
+        return {}
+    df = df[df["SYMBOL"].isin(symbols)].copy()
+    df["CLOSE_PRICE"] = pd.to_numeric(df["CLOSE_PRICE"], errors="coerce")
+    df = df.dropna(subset=["CLOSE_PRICE"]).sort_values("SERIES", key=lambda s: s != "EQ")
+    return df.drop_duplicates("SYMBOL").set_index("SYMBOL")["CLOSE_PRICE"].to_dict()
+
+
+def fill_from_nse(closes, max_days=10):
+    """Append closes NSE has published but Yahoo has not. Returns {symbol: [dates filled]}."""
+    if not closes:
+        return {}
+    first_gap = min(c.index[-1].date() for c in closes.values())
+    day, today, days = first_gap + timedelta(days=1), date.today(), []
+    while day <= today:
+        if day.weekday() < 5:
+            days.append(day)
+        day += timedelta(days=1)
+    filled = {}
+    for d in days[-max_days:]:
+        px = nse_closes(d, set(closes))
+        for s, v in px.items():
+            c = closes[s]
+            if d <= c.index[-1].date():
+                continue
+            ts = pd.Timestamp(d)
+            if c.index.tz is not None:
+                ts = ts.tz_localize(c.index.tz)
+            closes[s] = pd.concat([c, pd.Series([float(v)], index=pd.DatetimeIndex([ts], name=c.index.name))])
+            filled.setdefault(s, []).append(d)
+    return filled
+
+
 def fetch(symbols):
+    """Yahoo daily closes, with any days Yahoo is missing filled from the official NSE bhavcopy."""
+    closes, bad = fetch_yahoo(symbols)
+    if closes:
+        filled = fill_from_nse(closes)
+        if filled:
+            print(f"NSE bhavcopy filled {sum(map(len, filled.values()))} missing closes "
+                  f"for {len(filled)} ETFs", file=sys.stderr)
+    return closes, bad
+
+
+def fetch_yahoo(symbols):
     tickers = [s + ".NS" for s in symbols]
     raw = yf.download(tickers, period="15mo", interval="1d", auto_adjust=False,
                       progress=False, group_by="ticker", threads=True)
